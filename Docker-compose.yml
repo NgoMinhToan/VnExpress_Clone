@@ -14,7 +14,7 @@ services:
     
   server:
     build:
-      context: vnexpressAPI
+      context: vnexpress_server
       target: builder
     # command: python manage.py runserver 0.0.0.0:8000
     # volumes:
@@ -26,7 +26,7 @@ services:
     
   client:
     build: 
-      context: vnexpress_news
+      context: vnexpress_client
       target: react-app
     ports:
       - "3000:3000"
