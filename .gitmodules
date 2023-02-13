@@ -1,0 +1,6 @@
+[submodule "vnexpress_server"]
+	path = vnexpress_server
+	url = https://github.com/NgoMinhToan/VnExpress_server
+[submodule "vnexpress_client"]
+	path = vnexpress_client
+	url = https://github.com/NgoMinhToan/VnExpress_client
