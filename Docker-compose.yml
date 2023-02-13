@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: vnexpress-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=test
+    ports:
+      - "27017:27017"
+    
+  server:
+    build:
+      context: vnexpressAPI
+      target: builder
+    # command: python manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - /vnexpressAPI:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    
+  client:
+    build: 
+      context: vnexpress_news
+      target: react-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
