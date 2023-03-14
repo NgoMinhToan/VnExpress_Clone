@@ -1,3 +1,11 @@
+# Get Repository
+```bash
+git clone https://github.com/NgoMinhToan/VnExpress_clone
+git cd VnExpress_clone
+git submodule init
+git submodule update
+```
+
 # Run in docker
 ```bash
 docker compose up
