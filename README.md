@@ -30,3 +30,10 @@ cd VnExpress_clone
 chmod +x pwd.sh
 ./pwd.sh
 ```
+
+
+
+# DEMO
+1. ![Home](/demo/Screenshot%202023-03-21%20103918.png)
+2. ![News page](/demo/Screenshot%202023-03-21%20104022.png)
+3. ![Demo](/demo/demo.gif)
