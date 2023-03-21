@@ -22,6 +22,8 @@ docker exec vnexpress_clone-server-1 python manage.py auto_update_news big/[smal
 - Or: http://localhost:8000/update_news
 
 # Play with docker
+- play with docker: https://labs.play-with-docker.com/
+
 ```bash
 git clone https://github.com/NgoMinhToan/VnExpress_clone
 git cd VnExpress_clone
