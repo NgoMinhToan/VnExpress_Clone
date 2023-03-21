@@ -1,7 +1,7 @@
 # Get Repository
 ```bash
 git clone https://github.com/NgoMinhToan/VnExpress_clone
-git cd VnExpress_clone
+cd VnExpress_clone
 git submodule init
 git submodule update
 ```
@@ -26,14 +26,7 @@ docker exec vnexpress_clone-server-1 python manage.py auto_update_news big/[smal
 
 ```bash
 git clone https://github.com/NgoMinhToan/VnExpress_clone
-git cd VnExpress_clone
-git submodule init
-git submodule update
-```
-
-- Get port ip from dashboard by click "OPEN PORT" button and set it to 8000(server port), and copy the url
-- Edit file docker-compose.yml and paste it to environment variables "REACT_APP_HOST_NAME_DOCKER"
-- Then run docker-compose
-```bash
-docker compose up
+cd VnExpress_clone
+chmod +x pwd.sh
+./pwd.sh
 ```
