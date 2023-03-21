@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: vnexpress-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=test
+    ports:
+      - "27017:27017"
+    networks:
+      vnexpress-network:
+        ipv4_address: 192.168.0.65
+    
+  server:
+    build:
+      context: vnexpress_server
+      target: builder
+    # command: python manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - /vnexpressAPI:/app
+    ports:
+      - "8000:8000"
+    networks:
+      vnexpress-network:
+        ipv4_address: 192.168.0.66
+    depends_on:
+      - db
+    
+  client:
+    build: 
+      context: vnexpress_client
+      target: react-app
+      args:
+        - REACT_APP_IN_DOCKER=1
+    ports:
+      - "3000:3000"
+    networks:
+      vnexpress-network:
+        ipv4_address: 192.168.0.67
+    depends_on:
+      - server
+
+networks:
+  vnexpress-network:
+    name: vnexpress-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          ip_range: "192.168.0.64/26"
+          gateway: "192.168.0.1"
