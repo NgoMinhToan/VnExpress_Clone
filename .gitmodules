@@ -4,3 +4,6 @@
 [submodule "vnexpress_client"]
 	path = vnexpress_client
 	url = https://github.com/NgoMinhToan/VnExpress_client
+[submodule "Vnexpress_crawl_bot_cron"]
+	path = Vnexpress_crawl_bot_cron
+	url = https://github.com/NgoMinhToan/Vnexpress_crawl_bot_cron
