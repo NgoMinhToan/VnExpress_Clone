@@ -19,6 +19,7 @@ services:
     build:
       context: vnexpress_server
       target: builder
+    container_name: vnexpress_clone-server-1
     # command: python manage.py runserver 0.0.0.0:8000
     # volumes:
     #   - /vnexpressAPI:/app
@@ -29,6 +30,19 @@ services:
         ipv4_address: 192.168.0.66
     depends_on:
       - db
+  
+  crawl_cron:
+    build:
+      context: vnexpress_server_crawl_cron
+      target: cron
+    container_name: vnexpress_clone-crawl_cron-1
+    ports:
+      - "8001:8001"
+    networks:
+      vnexpress-network:
+        ipv4_address: 192.168.0.64
+    depends_on:
+      - db
     
   client:
     build: 
@@ -36,6 +50,7 @@ services:
       target: react-app
       args:
         - REACT_APP_IN_DOCKER=1
+    container_name: vnexpress_clone-client-1
     ports:
       - "3000:3000"
     networks:

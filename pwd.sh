@@ -16,7 +16,7 @@ docker compose -f docker-compose.playwithdocker.yml up -d
 echo ""
 echo "================================================================"
 echo "Init news"
-docker exec vnexpress_clone-server-1 python manage.py auto_update_news big
+# docker exec -d vnexpress_clone-server-1 crond -f
 
 echo ""
 echo "Finished!"
